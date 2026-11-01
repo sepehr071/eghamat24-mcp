@@ -1,0 +1,55 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "rate_plans": [
+   {
+    "id": 1156,
+    "property_id": 1253,
+    "guest_nationality": "both",
+    "lead_time_hours": null,
+    "after_check_in_hours": null,
+    "name": "اقامت با صبحانه",
+    "name_en": null,
+    "name_ar": null,
+    "caption": null,
+    "breakfast_rate": 0,
+    "half_board_rate": null,
+    "full_board_rate": null,
+    "board_type": "bed_and_breakfast",
+    "food_board_type": null,
+    "cancelable": 1,
+    "sleeps": null,
+    "min_stay": null,
+    "max_stay": null,
+    "max_stay_time": null,
+    "check_in_time": null,
+    "check_out_time": null
+   },
+   {
+    "id": 2910,
+    "property_id": 1253,
+    "guest_nationality": "both",
+    "lead_time_hours": null,
+    "after_check_in_hours": null,
+    "name": "فولبرد",
+    "name_en": null,
+    "name_ar": null,
+    "caption": null,
+    "breakfast_rate": null,
+    "half_board_rate": null,
+    "full_board_rate": 0,
+    "board_type": "full_board",
+    "food_board_type": null,
+    "cancelable": 1,
+    "sleeps": null,
+    "min_stay": null,
+    "max_stay": null,
+    "max_stay_time": null,
+    "check_in_time": null,
+    "check_out_time": null
+   }
+  ]
+ }
+}

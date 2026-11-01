@@ -1,0 +1,134 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "facilities": [
+   {
+    "id": 90,
+    "name": "پارکینگ",
+    "category": "property",
+    "facility_group_id": 1,
+    "english_name": "parking",
+    "priority": 1,
+    "params": [
+     {
+      "name": "covered",
+      "title": "پارکینگ سرپوشیده",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "outdoor",
+      "title": "پارکینگ روباز",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "free",
+      "title": "پارکینگ رایگان",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "amount",
+      "title": "هزینه",
+      "params": [],
+      "type": "text"
+     },
+     {
+      "name": "capacity",
+      "title": "ظرفیت",
+      "params": [],
+      "type": "text"
+     },
+     {
+      "name": "position",
+      "title": "موقعیت",
+      "params": [],
+      "type": "text"
+     }
+    ],
+    "disabled": true,
+    "filterable": true
+   },
+   {
+    "id": 91,
+    "name": "استخر",
+    "category": "property",
+    "facility_group_id": 6,
+    "english_name": "pool",
+    "priority": 1,
+    "params": [
+     {
+      "name": "indoor",
+      "title": "استخر سرپوشیده",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "outdoor",
+      "title": "استخر روباز",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "men",
+      "title": "استخر آقایان",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "women",
+      "title": "استخر بانوان",
+      "params": [],
+      "type": "multipleSelect"
+     },
+     {
+      "name": "amount",
+      "title": "هزینه",
+      "params": [],
+      "type": "text"
+     },
+     {
+      "name": "time",
+      "title": "زمان",
+      "params": [],
+      "type": "text"
+     },
+     {
+      "name": "position",
+      "title": "موقعیت",
+      "params": [],
+      "type": "text"
+     }
+    ],
+    "disabled": true,
+    "filterable": true
+   },
+   {
+    "id": 71,
+    "name": "مینی بار با هزینه",
+    "category": "property",
+    "facility_group_id": 1,
+    "english_name": "none-freeMinibar",
+    "priority": 14,
+    "params": null,
+    "disabled": true,
+    "filterable": true
+   },
+   {
+    "id": 127,
+    "name": "مینی بار با هزینه",
+    "category": "room_type",
+    "facility_group_id": 2,
+    "english_name": "none-freeMinibar",
+    "priority": 14,
+    "params": null,
+    "disabled": true,
+    "filterable": true
+   }
+  ],
+  "total": 4
+ }
+}

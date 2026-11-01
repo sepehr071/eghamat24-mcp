@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.sepehr071/eghamat24-mcp",
+  "title": "Eghamat24 Hotels",
+  "description": "Read-only Eghamat24 (eghamat24.com) Iran hotels: search, room prices, deals, reviews, facilities.",
+  "repository": {
+    "url": "https://github.com/sepehr071/eghamat24-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/sepehr071/eghamat24-mcp",
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "eghamat24-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "EGHAMAT24_MCP_PROXY",
+          "description": "Optional HTTP proxy URL for the Eghamat24 requests; system proxy settings are ignored.",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}

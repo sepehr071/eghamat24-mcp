@@ -1,0 +1,217 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "property_facilities": [
+   {
+    "id": 111359,
+    "property_id": 1253,
+    "facility_group_id": 1,
+    "name": "لابی",
+    "priority": 2,
+    "category": "property",
+    "description": null,
+    "params": [
+     {
+      "name": "capacity",
+      "title": "ظرفیت",
+      "params": [],
+      "type": "text"
+     },
+     {
+      "name": "area",
+      "title": "متراژ",
+      "params": [],
+      "type": "text"
+     },
+     {
+      "name": "position",
+      "title": "موقعیت",
+      "params": [],
+      "type": "text"
+     }
+    ],
+    "params_values": {
+     "capacity": {
+      "value": "با ظرفیت 100 نفر",
+      "params": []
+     },
+     "area": {
+      "value": "100 متر مربع",
+      "params": []
+     },
+     "position": {
+      "value": "همکف",
+      "params": []
+     }
+    },
+    "exist": true,
+    "updated_at": "2022-05-28 22:49:52"
+   },
+   {
+    "id": 111360,
+    "property_id": 1253,
+    "facility_group_id": 1,
+    "name": "پذیرش 24 ساعته",
+    "priority": 4,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111361,
+    "property_id": 1253,
+    "facility_group_id": 1,
+    "name": "آسانسور",
+    "priority": 3,
+    "category": "property",
+    "description": "5 دستگاه با ظرفیت‌های 11 و 13 نفر",
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111362,
+    "property_id": 1253,
+    "facility_group_id": 3,
+    "name": "صندوق امانات",
+    "priority": 13,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111363,
+    "property_id": 1253,
+    "facility_group_id": 1,
+    "name": "نمازخانه",
+    "priority": 19,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111364,
+    "property_id": 1253,
+    "facility_group_id": 5,
+    "name": "دستگاه واکس کفش",
+    "priority": 10,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111365,
+    "property_id": 1253,
+    "facility_group_id": 3,
+    "name": "آتلیه",
+    "priority": 22,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111366,
+    "property_id": 1253,
+    "facility_group_id": 3,
+    "name": "آژانس مسافرتی",
+    "priority": 14,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111436,
+    "property_id": 1253,
+    "facility_group_id": 3,
+    "name": "کتابخانه",
+    "priority": 21,
+    "category": "property",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": false,
+    "updated_at": "2022-05-28 22:49:58"
+   },
+   {
+    "id": 111437,
+    "property_id": 1253,
+    "facility_group_id": 5,
+    "name": "فروشگاه",
+    "priority": 11,
+    "category": "property",
+    "description": null,
+    "params": [
+     {
+      "name": "position",
+      "title": "موقعیت",
+      "params": [],
+      "type": "text"
+     }
+    ],
+    "params_values": null,
+    "exist": false,
+    "updated_at": "2022-05-28 22:49:59"
+   },
+   {
+    "id": 111405,
+    "property_id": 1253,
+    "facility_group_id": 2,
+    "name": "امکان شارژ وسایل الکترونیکی",
+    "priority": 10,
+    "category": "room_type",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111406,
+    "property_id": 1253,
+    "facility_group_id": 1,
+    "name": "روم سرویس",
+    "priority": 0,
+    "category": "room_type",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   },
+   {
+    "id": 111407,
+    "property_id": 1253,
+    "facility_group_id": 1,
+    "name": "صبحانه",
+    "priority": 12,
+    "category": "room_type",
+    "description": null,
+    "params": null,
+    "params_values": null,
+    "exist": true,
+    "updated_at": "2023-05-11 13:30:20"
+   }
+  ]
+ }
+}

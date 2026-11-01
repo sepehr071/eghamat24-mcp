@@ -1,0 +1,45 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "categories": [
+   {
+    "id": 9,
+    "city_id": 36,
+    "title": "هتل های قیمت مناسب مشهد",
+    "is_tag": true,
+    "filterable": false,
+    "uri": "/MashhadHotels/AffordableHotels.html",
+    "english_name": "Affordable"
+   },
+   {
+    "id": 10,
+    "city_id": 36,
+    "title": "هتل های ارزان مشهد",
+    "is_tag": true,
+    "filterable": false,
+    "uri": "/MashhadHotels/CheapHotels.html",
+    "english_name": "cheap"
+   },
+   {
+    "id": 11,
+    "city_id": 36,
+    "title": "هتل های خاص مشهد",
+    "is_tag": false,
+    "filterable": false,
+    "uri": null,
+    "english_name": "Special"
+   },
+   {
+    "id": 585,
+    "city_id": 36,
+    "title": "هتل های نزدیک حرم امام رضا",
+    "is_tag": true,
+    "filterable": true,
+    "uri": "/MashhadHotels/ImamRezaShrineHotels.html",
+    "english_name": "ImamRezaShrine"
+   }
+  ]
+ }
+}

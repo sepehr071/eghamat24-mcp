@@ -1,0 +1,107 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "property_attractions": [
+   {
+    "id": 2275,
+    "name": "بلوار امیرالمومنین",
+    "attraction_type": "important_streets",
+    "location": {
+     "latitude": 36.289909779105,
+     "longitude": 59.627709632651
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 187,
+    "time": 134,
+    "type": "walking"
+   },
+   {
+    "id": 61,
+    "name": "پارک وحدت",
+    "attraction_type": "recreational_attraction",
+    "location": {
+     "latitude": 36.287837,
+     "longitude": 59.630973
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 345,
+    "time": 248,
+    "type": "walking"
+   },
+   {
+    "id": 2258,
+    "name": "بلوار وحدت",
+    "attraction_type": "important_streets",
+    "location": {
+     "latitude": 36.284723,
+     "longitude": 59.626583
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 946,
+    "time": 681,
+    "type": "walking"
+   },
+   {
+    "id": 1959,
+    "name": "بیمارستان امام هادی",
+    "attraction_type": "hospital",
+    "location": {
+     "latitude": 36.286027757578,
+     "longitude": 59.623245793253
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 1350,
+    "time": 179,
+    "type": "driving"
+   },
+   {
+    "id": 1292,
+    "name": "مجتمع تجاری آرمان",
+    "attraction_type": "shopping_center",
+    "location": {
+     "latitude": 36.283131,
+     "longitude": 59.623174
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 1405,
+    "time": 193,
+    "type": "driving"
+   },
+   {
+    "id": 1956,
+    "name": "بیمارستان امام زمان",
+    "attraction_type": "hospital",
+    "location": {
+     "latitude": 36.280763300689,
+     "longitude": 59.630667401844
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 1807,
+    "time": 258,
+    "type": "driving"
+   },
+   {
+    "id": 2275,
+    "name": "بلوار امیرالمومنین",
+    "attraction_type": "important_streets",
+    "location": {
+     "latitude": 36.289909779105,
+     "longitude": 59.627709632651
+    },
+    "priority": 0,
+    "blog_uri": null,
+    "distance": 187,
+    "time": 134,
+    "type": "walking"
+   }
+  ]
+ }
+}

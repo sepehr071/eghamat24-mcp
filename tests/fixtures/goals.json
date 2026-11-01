@@ -1,0 +1,13 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "travel_goal_count": {
+   "family": 157,
+   "with_friends": 6,
+   "business": 13,
+   "single": 12
+  }
+ }
+}

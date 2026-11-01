@@ -1,0 +1,16 @@
+{
+ "code": 200,
+ "message": "",
+ "errors": null,
+ "value": {
+  "property_scores": {
+   "total_score": 6.8,
+   "facility_score": 6.9,
+   "location_score": 6.4,
+   "protocol_score": 6.8,
+   "price_score": 6.9,
+   "room_score": 7,
+   "total_comment_count": 187
+  }
+ }
+}
