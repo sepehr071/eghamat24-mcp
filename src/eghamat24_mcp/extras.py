@@ -20,6 +20,7 @@ from .hotels import (
     _locations,
     _norm,
     _property,
+    _search,
     _text,
     _toman,
 )
@@ -335,7 +336,8 @@ async def eg_specials(
     """List hotels on one of the site's offer pages: free cancellation, one-night offers or the latest discounts.
 
     Use it for "hotels with free cancellation in Shiraz" or "any one-night offers". These pages carry no dates:
-    `price_from` is the starting price per night in Toman and can change; follow up with eg_rooms for dates.
+    `price_from` is the starting price per night in Toman and can change; it is null when the site lists no price
+    (taken from tomorrow's search when free rooms exist). Follow up with eg_rooms for dates.
     """
     c = await _city(city) if city else None
     if kind == "free_cancellation":
@@ -359,4 +361,14 @@ async def eg_specials(
         for k in ("id", "status", "stay_total", "price_up_to"):
             card.pop(k, None)
         out.append({"city": cities.get(p["city_id"]), **card})
+    # some offers come without any price (min_price null); the price then exists only for dates with free rooms
+    for city_name in {h["city"] for h in out if h["price_from"] is None and h["city"]}:
+        try:
+            cards, _ = await _search(city_name, None, 1, "hotel")
+        except ToolError:
+            continue
+        price = {x["id"]: x["price_from"] for x in cards}
+        for p, h in zip(rows, out, strict=False):
+            if h["city"] == city_name and h["price_from"] is None:
+                h["price_from"] = price.get(p["id"])
     return {"kind": kind, "found": len(rows), "hotels": out}

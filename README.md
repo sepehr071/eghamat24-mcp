@@ -69,7 +69,7 @@ set `EGHAMAT24_MCP_PROXY=http://host:port`.
 | `eg_tour_calendar` | Cheapest package for each departure day |
 
 Prices are what the site shows for the dates asked and can change; availability is re-checked on the site at booking.
-`price_from` is the cheapest room (often a single bed) per night; `eg_search` with `guests` adds `price_for_guests`.
+`price_from` is the cheapest room (often a single bed) per night (in `eg_specials` it can be null when the site lists no price and tomorrow is sold out); `eg_search` with `guests` adds `price_for_guests`.
 
 ## FAQ
 
