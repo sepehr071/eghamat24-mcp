@@ -167,7 +167,13 @@ async def test_rooms_prices_for_stay(client, site):
     q = next(c for c in site.calls if c.url.path.endswith("rooms-rates")).url.params
     assert q["from_date"] == "2026-11-10" and q["to_date"] == "2026-11-12"
     eco = r["offers"][0]
-    assert eco["room_id"] == 36630 and eco["plan"] and eco["total"] == 8_000_000 and eco["per_night"] == [4_000_000] * 2
+    assert (
+        eco["room_id"] == 36630
+        and eco["plan"]
+        and eco["total"] == 8_000_000
+        and "per_night" not in eco
+        and eco["avg_night"] == 4_000_000
+    )
     assert eco["list_total"] == 12_925_000 and eco["free_cancel"] is True
     totals = [o["total"] for o in r["offers"]]
     assert totals == sorted(totals)

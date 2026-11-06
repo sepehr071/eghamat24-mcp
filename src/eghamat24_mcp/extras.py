@@ -17,6 +17,7 @@ from .hotels import (
     Nights,
     _card,
     _date,
+    _deg,
     _locations,
     _norm,
     _property,
@@ -83,26 +84,23 @@ def _tour_params(origin: dict, dest: dict, start, nights: int, adults: int) -> d
 
 @tool("Flight and hotel tours")
 async def eg_tours(
-    city: Annotated[str, Field(description="Destination city slug from eg_cities or Persian name (Mashhad, Kish...).")],
+    city: Annotated[str, Field(description="Destination slug from eg_cities or Persian name.")],
     origin: Origin = "Tehran",
     check_in: CheckIn = None,
     nights: Nights = 2,
     adults: Adults = 2,
     hotel: Annotated[
         str | None,
-        Field(
-            description="A hotel (the `hotel` value of this tool or eg_search): list its tour packages with flights."
-        ),
+        Field(description="`hotel` value of this tool or eg_search: list its packages."),
     ] = None,
-    sort: Annotated[Literal["price", "rating", "stars"], Field(description="Order of the hotel list.")] = "price",
+    sort: Annotated[Literal["price", "rating", "stars"], Field(description="Hotel order.")] = "price",
     limit: Annotated[int, Field(ge=1, le=60)] = 15,
 ) -> dict[str, Any]:
-    """Find flight-plus-hotel tour packages to a city, or the packages of one hotel with their flight times.
+    """Find flight-plus-hotel tour packages to a city, or the packages of one hotel with flight times.
 
-    Use it for "Tehran to Mashhad for 2 nights with the flight included". Without `hotel` it lists hotels with the
-    cheapest package for all `adults` together (`price_total`) and per person; with `hotel` it lists that hotel's
-    packages (room, meal plan, round-trip flights). Prices are Toman, flight included. Only some cities sell tours.
-    Empty results mean the flight seats for those dates are full: try other dates with eg_tour_calendar.
+    Without `hotel`: hotels with the cheapest package for all `adults` (`price_total`) and per person; with it: that
+    hotel's packages (room, meal plan, flights). Prices Toman, flight included. Only some cities sell tours; empty
+    means flights are full, try eg_tour_calendar.
     """
     dest, org = await _city(city, "tours_uri"), await _city(origin, "flights_uri")
     start = _date(check_in)
@@ -160,19 +158,16 @@ async def eg_tours(
 
 @tool("Tour price calendar")
 async def eg_tour_calendar(
-    city: Annotated[str, Field(description="Destination city slug or Persian name.")],
+    city: Annotated[str, Field(description="Destination slug or Persian name.")],
     origin: Origin = "Tehran",
-    from_date: Annotated[
-        str | None, Field(description="First departure day, YYYY-MM-DD or Jalali. Default: tomorrow.")
-    ] = None,
+    from_date: Annotated[str | None, Field(description="YYYY-MM-DD or Jalali. Default tomorrow.")] = None,
     nights: Nights = 2,
     adults: Adults = 2,
-    days: Annotated[int, Field(ge=1, le=31, description="How many departure days to list.")] = 14,
+    days: Annotated[int, Field(ge=1, le=31, description="Departure days.")] = 14,
 ) -> dict[str, Any]:
-    """Show the cheapest flight-plus-hotel package price for each departure day, to pick the cheapest day to leave.
+    """Show the cheapest flight-plus-hotel package price per departure day.
 
-    Use it for "when is a Tehran to Kish tour cheapest". A day missing from the list has no package (flights full).
-    Prices are Toman for all `adults` together. For the hotels on one day use eg_tours.
+    A missing day has no package. Prices Toman for all `adults` together. Hotels for one day: eg_tours.
     """
     dest, org = await _city(city, "tours_uri"), await _city(origin, "flights_uri")
     start = _date(from_date)
@@ -205,18 +200,15 @@ def _plain(html: Any, n: int = 900) -> str | None:
 
 @tool("Tourist attractions")
 async def eg_attractions(
-    city: Annotated[str, Field(description="City slug from eg_cities or Persian name.")],
-    query: Annotated[str | None, Field(description="Part of the attraction name, Persian.")] = None,
-    type: Annotated[str | None, Field(description="Attraction type as shown in results, e.g. shopping_center.")] = None,
-    attraction_id: Annotated[
-        int | None, Field(description="Get the description of this attraction (id from this list).")
-    ] = None,
+    city: Annotated[str, Field(description="Slug or Persian name.")],
+    query: Annotated[str | None, Field(description="Name part, Persian.")] = None,
+    type: Annotated[str | None, Field(description="Type as in results, e.g. shopping_center.")] = None,
+    attraction_id: Annotated[int | None, Field(description="Read this attraction (id from the list).")] = None,
     limit: Annotated[int, Field(ge=1, le=60)] = 20,
 ) -> dict[str, Any]:
-    """List the sights, shrines, malls and other places of a city, or read the description of one.
+    """List the sights, shrines, malls and other places of a city, or read one.
 
-    Use it as a city guide ("what to see in Mashhad") and to pick a place to stay near: pass an attraction's `id`
-    to eg_search as `attraction_id`. With `attraction_id` here you get its text, coordinates and type.
+    An attraction's `id` feeds eg_search `attraction_id`. With `attraction_id` here: text, coordinates, type.
     """
     c = await _city(city)
     if attraction_id:
@@ -228,8 +220,8 @@ async def eg_attractions(
             "city": c["english_name"],
             "name": a["name"],
             "type": a["type"],
-            "lat": a["location"]["latitude"],
-            "lng": a["location"]["longitude"],
+            "lat": _deg(a["location"]["latitude"]),
+            "lng": _deg(a["location"]["longitude"]),
             "description": _plain(a["description"], 1500),
             "hint": "Pass this id to eg_search as attraction_id to list hotels near it.",
         }
@@ -247,8 +239,8 @@ async def eg_attractions(
                 "id": a["id"],
                 "name": a["name"],
                 "type": a["type"],
-                "lat": a["location"]["latitude"],
-                "lng": a["location"]["longitude"],
+                "lat": _deg(a["location"]["latitude"]),
+                "lng": _deg(a["location"]["longitude"]),
             }
             for a in rows[:limit]
         ],
@@ -258,11 +250,11 @@ async def eg_attractions(
 @tool("Hotel photos")
 async def eg_photos(
     hotel: HotelRef,
-    limit: Annotated[int, Field(ge=1, le=60, description="Most photos to list.")] = 20,
+    limit: Annotated[int, Field(ge=1, le=60)] = 20,
 ) -> dict[str, Any]:
-    """List the photo URLs of a hotel: the main picture, the hotel gallery and the photos of each room type.
+    """List a hotel's photo URLs: main picture, gallery and each room type.
 
-    Use it to show or describe how a hotel and its rooms look. URLs are full-size JPEGs on eghamat24.com.
+    URLs are full-size JPEGs.
     """
     p = await _property(hotel)
     files, types = await asyncio.gather(
@@ -295,8 +287,7 @@ async def eg_similar(
 ) -> dict[str, Any]:
     """List the hotels the site suggests as alternatives to one hotel, with a starting price.
 
-    Use it when a hotel is sold out or too dear. `price_from` is the site's undated starting price per night in
-    Toman; get real prices for dates with eg_rooms or eg_search.
+    `price_from` is the undated price per night in Toman; real prices: eg_rooms.
     """
     p = await _property(hotel)
     v = await http.fetch(f"/properties/suggestion-by-property/{p['id']}")
@@ -325,19 +316,14 @@ Special = Literal["free_cancellation", "one_night", "latest_discount"]
 async def eg_specials(
     kind: Annotated[
         Special,
-        Field(
-            description="free_cancellation = hotels with free cancellation (needs city); one_night = the site's "
-            "one-night offers; latest_discount = hotels with the newest discounts."
-        ),
+        Field(description="free_cancellation needs city."),
     ],
-    city: Annotated[str | None, Field(description="City slug or Persian name; required for free_cancellation.")] = None,
+    city: Annotated[str | None, Field(description="Slug or Persian name; required for free_cancellation.")] = None,
     limit: Annotated[int, Field(ge=1, le=60)] = 15,
 ) -> dict[str, Any]:
-    """List hotels on one of the site's offer pages: free cancellation, one-night offers or the latest discounts.
+    """List hotels on one of the site's offer pages: free cancellation, one-night offers or latest discounts.
 
-    Use it for "hotels with free cancellation in Shiraz" or "any one-night offers". These pages carry no dates:
-    `price_from` is the starting price per night in Toman and can change; it is null when the site lists no price
-    (taken from tomorrow's search when free rooms exist). Follow up with eg_rooms for dates.
+    Undated: `price_from` is the starting price per night in Toman, absent when the site lists none. Dates: eg_rooms.
     """
     c = await _city(city) if city else None
     if kind == "free_cancellation":
